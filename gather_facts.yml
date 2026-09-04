@@ -1,11 +1,13 @@
 ---
-- name: gather facts about RHEL servers
-  hosts: all
-  tasks:
-    - name: show ansible_os_family
-      debug:
-        msg: "{{ ansible_os_family }}"
-    - name: show mount points
-      debug:
-        msg: "{{ ansible_mounts }}"
-      when: ansible_os_family == 'RedHat'
+- name: creating user
+  hosts: target_servers
+  gather_facts: yes
+  become: yes
+  tasks:
+    - name: show ansible_os_family
+      debug:
+        msg: "{{ ansible_os_family }}"
+
+    - name: show mount points
+      debug:
+        msg: "{{ ansible_mounts }}" 
