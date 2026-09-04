@@ -1,5 +1,5 @@
 ---
-- name: creating user
+- name: gather facts
   hosts: target_servers
   gather_facts: yes
   become: yes
